@@ -127,10 +127,6 @@ usado no treinamento e na inferência em streaming.
 - [ ] **M6 — Entrega reproduzível:** finalizar documentação, evidências,
   runbook e rotinas seguras de limpeza.
 
-O repositório está na fase inicial de planejamento. Ainda não existe uma versão
-executável ou um benchmark validado; os comandos de instalação e execução serão
-incluídos conforme os primeiros marcos forem concluídos.
-
 ## Sugestões de evolução
 
 As ideias abaixo aguardam priorização e não integram o compromisso inicial do
