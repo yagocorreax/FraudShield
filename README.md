@@ -127,10 +127,5 @@ usado no treinamento e na inferência em streaming.
 - [ ] **M6 — Entrega reproduzível:** finalizar documentação, evidências,
   runbook e rotinas seguras de limpeza.
 
-## Documentação
-
-Os requisitos, critérios de aceite, decisões técnicas e recomendações estão no
-[planejamento inicial](docs/planejamento.md).
-
 ---
 
