@@ -118,7 +118,7 @@ usado no treinamento e na inferência em streaming.
   o relatório de qualidade.
 - [ ] **M2 — Modelo:** treinar baseline e XGBoost, selecionar limiares e
   versionar o pipeline e suas métricas.
-- [ ] **M3 — Streaming mínimo:** executar Kafka, replay, scoring e sink Parquet
+- [ ] **M3 — Streaming:** executar Kafka, replay, scoring e sink Parquet
   local com 1.000 eventos, incluindo testes de repetição e reinício.
 - [ ] **M4 — Objetos e pipeline de logs:** integrar SeaweedFS e implementar
   Fluent Bit, ElasticMQ, worker, retentativas, DLQ e reconciliação.
