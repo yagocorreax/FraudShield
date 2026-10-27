@@ -1,0 +1,35 @@
+# Configuração local e credenciais
+.env
+.env.*
+!.env.example
+
+# Dados da competição, derivados e estado local
+/data/input/
+/data/prepared/
+/data/volumes/
+/data/artifacts/
+/logs/
+/tmp/
+
+# Modelos serializados locais; publicação de artefatos será definida em M2
+*.pkl
+*.pickle
+*.joblib
+
+# Ambiente e caches Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Arquivos do sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
