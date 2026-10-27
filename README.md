@@ -7,14 +7,8 @@
 
 ## Sobre o projeto
 
-O **FraudShield** é uma POC de engenharia de dados e machine learning que simula
-o ciclo de detecção de fraude: preparação de dados históricos, treinamento de
-um modelo, reprodução de transações em fluxo, geração de scores de risco,
-persistência das decisões e acompanhamento operacional.
-
-O projeto foi desenhado para funcionar localmente em Windows com Docker Desktop
-e WSL2, inclusive em uma máquina com 8 GB de RAM. Para respeitar essa restrição,
-treinamento, streaming e análise serão executados em etapas separadas.
+O **FraudShield** é uma junção de engenharia de dados e machine learning simulando
+um sistema de detecção de fraudes em streaming para que o modelo detecte em tempo real dados fraudulentos e utilizando como inspiração **Alexandria** uma plataforma completa que permite auditoria, observalidade e integridade dos logs feita pelo time de engenharia da <Nubank>.
 
 ## Objetivo
 
