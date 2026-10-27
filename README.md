@@ -86,8 +86,6 @@ componente for implementado e validado.
 O modelo utilizará os arquivos `train_transaction.csv` e
 `train_identity.csv` da competição
 [IEEE-CIS Fraud Detection](https://www.kaggle.com/competitions/ieee-fraud-detection/data).
-O download exige uma conta no Kaggle e a aceitação das regras da competição.
-O dataset não é distribuído por este repositório.
 
 Os registros serão associados por `TransactionID`, ordenados por
 `TransactionDT` e divididos inicialmente da seguinte forma:
@@ -113,33 +111,6 @@ desempenho por janela temporal.
 Cada decisão será vinculada a um `schema_version`, `model_version`,
 `correlation_id` e `run_id`. O mesmo pipeline de pré-processamento deverá ser
 usado no treinamento e na inferência em streaming.
-
-## Estrutura planejada
-
-```text
-fraudshield/
-├── configs/                 # Kafka, logs, métricas e dashboards
-├── data/                    # Dados locais ignorados pelo Git
-│   ├── input/
-│   ├── prepared/
-│   ├── artifacts/
-│   └── volumes/
-├── docs/                    # Arquitetura, decisões e runbooks
-├── scripts/                 # Bootstrap, smoke tests e benchmarks
-├── src/
-│   ├── common/
-│   ├── prepare/
-│   ├── train/
-│   ├── replay/
-│   ├── scoring/
-│   ├── sink/
-│   ├── logs_accumulator/
-│   └── logs_worker/
-├── tests/                   # Testes unitários, integração e aceite
-├── .env.example
-├── compose.yaml
-└── README.md
-```
 
 ## Roadmap
 
