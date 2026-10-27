@@ -2,7 +2,6 @@
 
 ## Escopo descrito no guia
 
-- POC local em Windows, Docker Desktop e WSL2, com referência de 8 GB de RAM.
 - Dados IEEE-CIS associados por `TransactionID` com `LEFT JOIN` e ordenados por
   `TransactionDT`.
 - Recorte inicial de 120 mil transações para treino, 30 mil para validação e
