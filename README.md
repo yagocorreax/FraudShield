@@ -79,8 +79,7 @@ eventualmente não tenham sido publicados na fila após uma interrupção.
 | Testes | pytest | Testes unitários, de integração e de aceite |
 
 As versões exatas das imagens e bibliotecas serão fixadas conforme cada
-componente for implementado e validado. Imagens Docker não usarão a tag
-`latest`.
+componente for implementado e validado.
 
 ## Dados e avaliação
 
