@@ -8,7 +8,7 @@
 ## Sobre o projeto
 
 O **FraudShield** é uma junção de engenharia de dados e machine learning simulando
-um sistema de detecção de fraudes em streaming para que o modelo detecte em tempo real dados fraudulentos e utilizando como inspiração **Alexandria** uma plataforma completa que permite auditoria, observalidade e integridade dos logs feita pelo time de engenharia da <Nubank>.
+um sistema de detecção de fraudes em streaming para que o modelo detecte em tempo real dados fraudulentos e utilizando como inspiração **Alexandria** uma plataforma completa que permite auditoria, observalidade e integridade dos logs feita pelo time de engenharia da __Nubank__.
 
 ## Objetivo
 
