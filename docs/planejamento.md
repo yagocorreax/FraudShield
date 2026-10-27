@@ -45,12 +45,6 @@ flowchart TD
     PRO --> G[Grafana]
 ```
 
-Treino, streaming e análise terão execução planejada por etapa. Os perfis
-Compose `streaming`, `observability` e `analytics` serão definidos na
-implementação. Perfis selecionam serviços; os limites de recursos e a
-exclusão operacional entre treino e streaming precisam de configuração e
-validação adicionais.
-
 ## Invariantes para a implementação
 
 1. **Evitar vazamento de rótulos:** `isFraud` permanece fora das features,
