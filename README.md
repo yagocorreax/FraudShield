@@ -1,13 +1,9 @@
 # FraudShield
 
-> Prova de conceito local para detecção de fraudes em transações, combinando
-> aprendizado de máquina, processamento de eventos e observabilidade.
-
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-f0ad4e)
 ![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-3776AB?logo=python&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-KRaft-231F20?logo=apachekafka&logoColor=white)
-![License](https://img.shields.io/badge/licen%C3%A7a-a%20definir-lightgrey)
 
 ## Sobre o projeto
 
