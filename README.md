@@ -127,15 +127,6 @@ usado no treinamento e na inferência em streaming.
 - [ ] **M6 — Entrega reproduzível:** finalizar documentação, evidências,
   runbook e rotinas seguras de limpeza.
 
-## Segurança e limitações
-
-- dados da competição, credenciais e artefatos locais permanecem fora do Git;
-- Kafka, SeaweedFS e ElasticMQ não serão expostos à rede pública;
-- informações de identidade e segredos não deverão aparecer nos logs;
-- a POC será executada em um único nó e não oferece alta disponibilidade;
-- resultados obtidos no dataset histórico não comprovam desempenho em
-  transações atuais.
-
 ## Documentação
 
 Os requisitos, critérios de aceite, decisões técnicas e recomendações estão no
@@ -143,5 +134,3 @@ Os requisitos, critérios de aceite, decisões técnicas e recomendações estã
 
 ---
 
-Desenvolvido como projeto de estudo em engenharia de dados, machine learning e
-arquiteturas orientadas a eventos.
