@@ -17,10 +17,6 @@
 - Prometheus, Grafana, consultas DuckDB e evidências de qualidade, desempenho,
   integridade e recuperação de falhas.
 
-O guia não prevê pagamentos reais, alta disponibilidade ou validação em
-transações atuais. Spark, Airflow, Trino, Kubernetes e servidor MLflow ficam
-fora do MVP. A topologia e os limites por serviço ainda serão implementados.
-
 ## Fluxos previstos
 
 ```mermaid
