@@ -127,19 +127,6 @@ usado no treinamento e na inferência em streaming.
 - [ ] **M6 — Entrega reproduzível:** finalizar documentação, evidências,
   runbook e rotinas seguras de limpeza.
 
-## Sugestões de evolução
-
-As ideias abaixo aguardam priorização e não integram o compromisso inicial do
-MVP:
-
-- **Simulador de políticas:** comparação dos limiares de aprovação, revisão e
-  bloqueio com fraudes detectadas, falsos positivos, demanda de revisão e custo
-  estimado.
-- **Explicação das decisões:** principais contribuições das features para o
-  score de cada transação, com rastreabilidade da versão do modelo.
-- **Monitoramento de mudança:** comparação das distribuições de features e
-  scores entre janelas para identificar situações que mereçam investigação.
-
 ## Segurança e limitações
 
 - dados da competição, credenciais e artefatos locais permanecem fora do Git;
