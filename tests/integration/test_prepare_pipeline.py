@@ -7,10 +7,10 @@ from pathlib import Path
 import duckdb
 import pytest
 
-from fraudshield.common.settings import PrepareSettings
-from fraudshield.prepare.pipeline import DataValidationError, PreparationError, run_preparation
-from fraudshield.prepare.report import sha256_file
-from fraudshield.replay.events import transaction_event_from_flat_row
+from fraudshield_events import transaction_event_from_flat_row
+from fraudshield_pipeline import DataValidationError, PreparationError, run_preparation
+from fraudshield_report import sha256_file
+from fraudshield_settings import PrepareSettings
 
 FIXTURES = Path(__file__).parents[1] / "fixtures"
 
