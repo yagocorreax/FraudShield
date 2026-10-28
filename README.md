@@ -1,14 +1,17 @@
 # FraudShield
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-f0ad4e)
-![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-3776AB?logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-KRaft-231F20?logo=apachekafka&logoColor=white)
 
 ## Sobre o projeto
 
-O **FraudShield** é uma junção de engenharia de dados e machine learning simulando
-um sistema de detecção de fraudes em streaming para que o modelo detecte em tempo real dados fraudulentos e utilizando como inspiração **Alexandria** uma plataforma completa que permite auditoria, observalidade e integridade dos logs feita pelo time de engenharia da __Nubank__.
+O **FraudShield** reúne engenharia de dados e machine learning para simular um
+sistema de detecção de fraudes em streaming. O projeto também se inspira no
+**Alexandria**, plataforma de logs desenvolvida pelo time de engenharia do
+Nubank, especialmente nos conceitos de auditoria, observabilidade e integridade
+dos logs.
 
 ## Objetivo
 
@@ -67,7 +70,7 @@ eventualmente não tenham sido publicados na fila após uma interrupção.
 
 | Área | Tecnologias | Responsabilidade |
 | --- | --- | --- |
-| Linguagem | Python 3.11 ou 3.12 | Preparação, treinamento e serviços da aplicação |
+| Linguagem | Python 3.12 | Preparação, treinamento e serviços da aplicação |
 | Machine learning | scikit-learn e XGBoost | Pré-processamento, baseline, treino e inferência |
 | Dados analíticos | DuckDB e Apache Parquet | Recortes, consultas e persistência colunar |
 | Streaming | Apache Kafka em modo KRaft | Transporte de transações e decisões |
@@ -80,6 +83,82 @@ eventualmente não tenham sido publicados na fila após uma interrupção.
 
 As versões exatas das imagens e bibliotecas serão fixadas conforme cada
 componente for implementado e validado.
+
+## Estado atual
+
+A primeira base executável do M1 está disponível. Ela valida contratos de
+eventos e executa, com dados sintéticos, o fluxo de preparação temporal:
+
+```text
+CSV de transações + CSV de identidade
+→ validação de qualidade
+→ LEFT JOIN por TransactionID
+→ ordenação por TransactionDT e TransactionID
+→ treino, validação e teste em Parquet
+→ replay sem isFraud
+→ relatório de qualidade e manifesto com hashes
+```
+
+O fluxo sintético está coberto por testes automatizados. A execução com o
+dataset completo do IEEE-CIS permanece pendente.
+
+## Executando o primeiro marco
+
+### 1. Preparar o ambiente no Windows
+
+O projeto usa CPython 3.12. No PowerShell, a partir da raiz do repositório:
+
+```powershell
+winget install --id Python.Python.3.12 --exact --source winget `
+  --architecture x64 --scope user `
+  --accept-source-agreements --accept-package-agreements
+
+$python312 = "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe"
+if (-not (Test-Path -LiteralPath $python312)) {
+  throw "Ajuste `$python312 para o local em que o Python 3.12 foi instalado."
+}
+
+& $python312 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+```
+
+Não é necessário ativar o ambiente virtual; os comandos usam seu executável
+diretamente.
+
+### 2. Validar a instalação
+
+```powershell
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m pytest
+```
+
+### 3. Executar a demonstração sintética
+
+```powershell
+.\.venv\Scripts\python.exe -m fraudshield.prepare `
+  --transactions tests/fixtures/transactions.csv `
+  --identity tests/fixtures/identity.csv `
+  --output data/prepared/demo `
+  --train-rows 6 `
+  --validation-rows 3 `
+  --test-rows 3 `
+  --threads 1 `
+  --memory-limit 512MB
+```
+
+A execução produz:
+
+- `train.parquet`, `validation.parquet` e `test.parquet`;
+- `replay.parquet`, sem o rótulo `isFraud`;
+- `test_labels.parquet`, separado do replay;
+- `quality_report.json`, com contagens, nulos, duplicatas e cobertura do join;
+- `manifest.json`, com configuração, schema e hashes dos artefatos.
+
+Se a validação falhar, o pipeline não publica uma saída parcial. As mesmas
+entradas e recortes geram o mesmo `run_id`; o manifesto também permanece igual
+quando toda a configuração de execução é mantida.
 
 ## Dados e avaliação
 
@@ -114,8 +193,8 @@ usado no treinamento e na inferência em streaming.
 
 ## Roadmap
 
-- [ ] **M1 — Ambiente e dados:** validar recursos, preparar os recortes e gerar
-  o relatório de qualidade.
+- [ ] **M1 — Ambiente e dados:** a base sintética e os contratos estão prontos;
+  falta executar o dataset IEEE-CIS e registrar o relatório real de qualidade.
 - [ ] **M2 — Modelo:** treinar baseline e XGBoost, selecionar limiares e
   versionar o pipeline e suas métricas.
 - [ ] **M3 — Streaming:** executar Kafka, replay, scoring e sink Parquet
