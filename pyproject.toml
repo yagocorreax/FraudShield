@@ -20,10 +20,18 @@ dev = [
 ]
 
 [project.scripts]
-fraudshield-prepare = "fraudshield.prepare.main:main"
+fraudshield-prepare = "fraudshield_prepare:main"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = [
+    "fraudshield_contracts",
+    "fraudshield_events",
+    "fraudshield_pipeline",
+    "fraudshield_prepare",
+    "fraudshield_report",
+    "fraudshield_settings",
+]
 
 [tool.pytest.ini_options]
 addopts = "-ra"
