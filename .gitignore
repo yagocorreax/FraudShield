@@ -1,7 +1,6 @@
 # Configuração local e credenciais
 .env
 .env.*
-!.env.example
 
 # Dados da competição, derivados e estado local
 /data/input/
