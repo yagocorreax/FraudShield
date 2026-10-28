@@ -137,7 +137,7 @@ diretamente.
 ### 3. Executar a demonstração sintética
 
 ```powershell
-.\.venv\Scripts\python.exe -m fraudshield.prepare `
+.\.venv\Scripts\python.exe -m fraudshield_prepare `
   --transactions tests/fixtures/transactions.csv `
   --identity tests/fixtures/identity.csv `
   --output data/prepared/demo `
