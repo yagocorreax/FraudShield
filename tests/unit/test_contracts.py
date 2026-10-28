@@ -3,7 +3,7 @@ from datetime import UTC, datetime, timedelta, timezone
 import pytest
 from pydantic import ValidationError
 
-from fraudshield.common.contracts import Decision, FraudDecision, TransactionEvent
+from fraudshield_contracts import Decision, FraudDecision, TransactionEvent
 
 
 def test_transaction_event_accepts_features_without_label() -> None:
