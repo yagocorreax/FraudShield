@@ -1,0 +1,9 @@
+TransactionID,DeviceType,id_12
+1001,desktop,Found
+1003,mobile,Found
+1004,desktop,NotFound
+1008,mobile,Found
+1010,desktop,Found
+1012,,NotFound
+9999,mobile,Found
+
